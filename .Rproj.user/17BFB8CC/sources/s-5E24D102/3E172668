@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1570114230050.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "3E172668",
+    "lastKnownWriteTime" : 140459229873720,
+    "last_content_update" : 1570114230050,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "32955E68",
+        "caption" : "SurveyIncomplete",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=SurveyIncomplete&cache_key=32955E68",
+        "displayedObservations" : "5000",
+        "environment" : "",
+        "expression" : "SurveyIncomplete",
+        "object" : "SurveyIncomplete",
+        "preview" : "0",
+        "totalObservations" : "5000",
+        "variables" : "7"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1570790018260.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2448083804",
+    "id" : "E6CA806A",
+    "lastKnownWriteTime" : 1571155483,
+    "last_content_update" : 1571155483459,
+    "path" : "~/LASTTASK/ScriprBrandC5.0.R",
+    "project_path" : "ScriprBrandC5.0.R",
+    "properties" : {
+        "cursorPosition" : "57,0",
+        "docOutlineVisible" : "0",
+        "scrollLine" : "43",
+        "source_window_id" : "",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

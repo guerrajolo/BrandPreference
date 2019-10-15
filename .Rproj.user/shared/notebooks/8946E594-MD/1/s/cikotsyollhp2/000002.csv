@@ -1,0 +1,4 @@
+"0","ConfusionM <- confusionMatrix(PRED2, testing$brand)"
+"2","Error in table(data, reference, dnn = dnn, ...) : 
+  all arguments must have the same length
+"

@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1571153048942.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "C4510F90",
+    "lastKnownWriteTime" : 140703128616964,
+    "last_content_update" : 1571153048942,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "632269A7",
+        "caption" : "TotData",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=TotData&cache_key=632269A7",
+        "displayedObservations" : 14898,
+        "environment" : "",
+        "expression" : "TotData",
+        "object" : "TotData",
+        "preview" : 0,
+        "totalObservations" : 14898,
+        "variables" : 7
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

@@ -1,0 +1,4 @@
+"0","inTraining <- createDataPartition(CompleteResponses$brand, p = .75, list = FALSE)"
+"0","training <- CompleteResponses[inTraining,]"
+"0","testing <- CompleteResponses[-inTraining,]"
+"0",""

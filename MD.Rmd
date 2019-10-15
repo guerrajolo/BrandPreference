@@ -1,0 +1,116 @@
+---
+title: "Brand Preference"
+output: github_document
+author: "Gherardo Lattanzi"
+---
+
+```{r}
+CompleteResponses <- read.csv("../Desktop/UBIQUM/CompleteResponses.csv")
+SurveyIncomplete <- read.csv("~/Desktop/UBIQUM/SurveyIncomplete.csv")
+
+```
+
+
+```{r}
+library(caret)
+library(ggplot2)
+```
+
+# Data Cleaning
+```{r}
+CompleteResponses$elevel <- as.integer(CompleteResponses$elevel)
+CompleteResponses$car <- as.factor(CompleteResponses$car)
+CompleteResponses$brand <- as.factor(CompleteResponses$brand)
+CompleteResponses$zipcode <- as.factor(CompleteResponses$zipcode)
+CompleteResponses$age <- as.numeric(CompleteResponses$age)
+
+
+SurveyIncomplete$elevel <- as.integer(SurveyIncomplete$elevel)
+SurveyIncomplete$car <- as.factor(SurveyIncomplete$car)
+SurveyIncomplete$brand <- as.factor(SurveyIncomplete$brand)
+SurveyIncomplete$zipcode <- as.factor(SurveyIncomplete$zipcode)
+SurveyIncomplete$age <- as.numeric(SurveyIncomplete$age)
+```
+
+```{r}
+library(ggplot2)
+ggplot(CompleteResponses, aes(x=age, y=salary, col=brand)) +
+  geom_point() +
+  geom_smooth()
+```
+
+```{r}
+library(ggplot2)
+ggplot(CompleteResponses, aes(x=age, fill=brand)) + geom_histogram(color="black", bins=10)
+
+#With this graph we can easily see how th
+```
+
+# define an 75%/25% train/test split
+```{r}
+inTraining <- createDataPartition(CompleteResponses$brand, p = .75, list = FALSE)
+training <- CompleteResponses[inTraining,]
+testing <- CompleteResponses[-inTraining,]
+```
+
+# 10 fold cross validation
+
+```{r}
+fitControl <- trainControl(method = "repeatedcv", number = 10, repeats = 1)
+```
+
+#train Random Forest Regression model with a tuneLenght = 2 
+
+```{r echo=FALSE}
+M0D <- train(brand~., data = training, method = "rf", trControl=fitControl, tuneLength = 2, list = FALSE )
+print(M0D)
+```
+  
+# Apply Model to TestSet
+```{r}
+PRED1 <- predict(M0D, testing)
+summary(PRED1)
+#SurveyIncomplete$brand <- PRED1
+```
+
+```{r}
+confusionMatrix(PRED1, testing$brand)
+```
+
+########################################################################################
+# TRAIN C5.0
+```{r echo=FALSE}
+MODC5 <- train(brand~., data = training, method = "C5.0", trControl=fitControl, tuneLength = 2, list = FALSE)
+print(MODC5)
+str(MODC5)
+```
+# Apply Model to SurveyIncomplete
+```{r}
+PRED2 <- predict(MODC5, SurveyIncomplete)
+PRED2
+summary(PRED2)
+
+```
+
+# this is to compare the testing brand preference prediction and the actual value. 
+```{r}
+postResample <- postResample(PRED2, testing$brand) 
+
+```
+
+```{r}
+varImp(MODC5)
+head(testing)
+```
+
+```{r eval=FALSE, include=FALSE}
+ConfusionM <- confusionMatrix(PRED2, testing$brand)
+ConfusionM
+
+```
+
+```{r}
+TotData <-rbind(SurveyIncomplete, CompleteResponses)
+
+```
+
