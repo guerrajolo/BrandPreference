@@ -1,4 +1,0 @@
-"0","library(ggplot2)"
-"0","ggplot(CompleteResponses, aes(x=age, fill=brand)) + geom_histogram(color=""black"", bins=10)"
-"2","
-"

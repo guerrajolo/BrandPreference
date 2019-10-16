@@ -1,8 +1,7 @@
-###IMPORT DATASET
+#### IMPORT DATASET #### 
 CompleteResponses <- read.csv("../Desktop/UBIQUM/CompleteResponses.csv")
 
-###EDUCATION LEVEL AS INTEGER
-
+# DataCleaning
 
 CompleteResponses$elevel <- as.integer(CompleteResponses$elevel)
 CompleteResponses$car <- as.factor(CompleteResponses$car)
@@ -32,6 +31,8 @@ M0D <- train(brand~., data = training, method = "rf", trControl=fitControl, tune
 ###M0D <- train(brand~., data = training, method = "rf", trControl=fitControl, tuneLength = 2, list = FALSE )
 ### The Accuracy and the Kappa returned by using tunelenght = 10 does not provide significantly better outputs. 
 
+save(M0D, file = "dataMOD.RData")
+
 print(M0D)
 #  7424 samples
 #  6 predictor
@@ -50,7 +51,7 @@ PRED1
 summary(PRED1)
 
 postResample <- postResample(PRED1, testing$brand) 
-
+postResample
 
 #to ascertain how the model prioritized each feature in the training 
 varImp(M0D)

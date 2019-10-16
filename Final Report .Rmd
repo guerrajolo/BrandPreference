@@ -4,7 +4,7 @@ output: github_document
 author: "Gherardo Lattanzi"
 ---
 #### Costumer Brand Preference ####
-Hi Danielle, the following is the investigation on wether our customers prefers Acer or Sony. 
+Hi Danielle, the following is the investigation on wether our customers prefers Acer or Sony. The following should not be unfamiliar with you, since the processes from analysing and cleaning the dataset are mainly the same we worked in RapidMiner. 
 
 ```{r}
 CompleteResponses <- read.csv("../Desktop/UBIQUM/CompleteResponses.csv")
@@ -12,7 +12,7 @@ SurveyIncomplete <- read.csv("~/Desktop/UBIQUM/SurveyIncomplete.csv")
 
 ```
 
-
+Those are the two libraries I have used to craft this presentation. 
 ```{r}
 library(caret)
 library(ggplot2)
@@ -34,6 +34,8 @@ SurveyIncomplete$zipcode <- as.factor(SurveyIncomplete$zipcode)
 SurveyIncomplete$age <- as.numeric(SurveyIncomplete$age)
 ```
 
+The following are graphical representations of the relationship between the attributes 
+of our customers. 
 # Brand Preference for Salary and Age
 ```{r}
 library(ggplot2)
@@ -138,7 +140,7 @@ PRED2 <- predict(MODC5, SurveyIncomplete)
 
 ```
 
-# this is to compare the testing brand preference prediction and the actual value. 
+This is to compare the testing brand preference prediction and the actual value. 
 ```{r}
 postResample <- postResample(PRED2, testing$brand) 
 

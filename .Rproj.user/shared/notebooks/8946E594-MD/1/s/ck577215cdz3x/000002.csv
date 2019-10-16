@@ -1,4 +1,0 @@
-"0","library(ggplot2)"
-"0","ggplot(CompleteResponses, aes(x=age, y=salary, col=brand)) +"
-"0","  geom_point() +"
-"0","  geom_smooth()"

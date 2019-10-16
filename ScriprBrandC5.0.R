@@ -31,6 +31,8 @@ fitControl <- trainControl(method = "repeatedcv", number = 10, repeats = 1)
 MODC5 <- train(brand~., data = training, method = "C5.0", trControl=fitControl, tuneLength = 10, list = FALSE)
 print(MODC5)
 str(MODC5)
+save(MODC5, file = "dataMOD5C.RData")
+
 ################
 #model  winnow  Accuracy   Kappa    
 #rules  FALSE   0.8286667  0.6570877
@@ -39,18 +41,19 @@ str(MODC5)
 #tree    TRUE   0.8224748  0.6360823
 ################
 
-postResample <- postResample(PRED2, testing$brand) 
-##this is to compare the testing brand preference prediction and the actual value. 
-
-#postResample
-#Accuracy     Kappa 
-#0.9187551 0.8284672 
 
 ###APPLY MODEL TO TESTSET 
 PRED2 <- predict(MODC5, SurveyIncomplete)
 PRED2
 summary(PRED2)
 SurveyIncomplete$brand <- PRED2
+
+postResample <- postResample(PRED2, testing$brand) 
+##this is to compare the testing brand preference prediction and the actual value. 
+
+#postResample
+#Accuracy     Kappa 
+#0.9187551 0.8284672 
 
 #to ascertain how the model prioritized each feature in the training (more on this in the resour
 varImp(MODC5)
